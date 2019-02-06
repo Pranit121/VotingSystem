@@ -1,0 +1,129 @@
+doctype html
+html(lang='en', xmlns='http://www.w3.org/1999/html')
+  head
+    meta(charset='utf-8')
+    title Voting Portal
+    meta(content='width=device-width, initial-scale=1.0', name='viewport')
+    meta(content='', name='keywords')
+    meta(content='', name='description')
+    // Favicons
+    link(href='img/favicon.png', rel='icon')
+    link(href='img/apple-touch-icon.png', rel='apple-touch-icon')
+    // Google Fonts
+    link(href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700', rel='stylesheet')
+    // Bootstrap CSS File
+    link(href='lib/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Libraries CSS Files
+    link(href='lib/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='lib/animate/animate.min.css', rel='stylesheet')
+    link(href='lib/ionicons/css/ionicons.min.css', rel='stylesheet')
+    link(href='lib/owlcarousel/assets/owl.carousel.min.css', rel='stylesheet')
+    // Main Stylesheet File
+    link(href='css/style.css', rel='stylesheet')
+    //
+      =======================================================
+      Theme Name: EstateAgency
+      Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+      Author: BootstrapMade.com
+      License: https://bootstrapmade.com/license/
+      =======================================================
+  body
+    // / Nav Star /
+    nav.navbar.navbar-default.navbar-trans.navbar-expand-lg.fixed-top
+      .container
+        button.navbar-toggler.collapsed(type='button', data-toggle='collapse', data-target='#navbarDefault', aria-controls='navbarDefault', aria-expanded='false', aria-label='Toggle navigation')
+          span
+          span
+          span
+        a.navbar-brand.text-brand(href='#')
+          | Voting
+          span.color-b System
+        button.btn.btn-link.nav-search.navbar-toggle-box-collapse.d-md-none(type='button', data-toggle='collapse', data-target='#navbarTogglerDemo01', aria-expanded='false')
+          span.fa.fa-search(aria-hidden='true')
+        #navbarDefault.navbar-collapse.collapse.justify-content-end
+          ul.navbar-nav
+            li.nav-item
+              a.nav-link(href='./vote_election') Vote Election
+            li.nav-item
+              a.nav-link.active(href='./user_result') Results
+            li.nav-item
+              a.nav-link(href='./login') Log Out
+            //
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Pages
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="property-single.html">Property Single</a>
+              <a class="dropdown-item" href="blog-single.html">Blog Single</a>
+              <a class="dropdown-item" href="agents-grid.html">Agents Grid</a>
+              <a class="dropdown-item" href="agent-single.html">Agent Single</a>
+              </div>
+              </li>
+    // / Nav End /
+    br
+    br
+    br
+    br
+    br
+    .my-3.my-md-5
+      .container
+        .row
+          .col.align-center
+            form.card(action='/user_show_result', method='post')
+              .card-header
+                .row(style='width:100%;')
+                  .col-12(style='margin-top:10px;')
+                    h3.card-title
+                      center Election Results
+              .card-body
+                .row
+                  .col-md-12(<form='')
+                    .form-group.row
+                      label.col-sm-2.col-form-label Election Name
+                      .dropdown.col-sm-10
+                        .form-group
+                        select#sel1.form-control(name='selected_election_id')
+                            each item in election_details
+                                option(value='#{item.e_id}') #{item.e_name}
+
+                    .text-center
+                      button.btn.btn-info.btn-lg(type='submit') Show Results
+                    br
+                    if (typeof(candidate_list) !== 'undefined')
+                        .form-group.row
+                          table.table.table-hover
+                            thead
+                              tr
+                                th(scope='col') Candidate ID
+                                th(scope='col') Name
+                                th(scope='col') Address
+                                th(scope='col') Details
+                                th(scope='col') Votes
+                            tbody
+                              each item in candidate_list
+                                  tr
+                                    td=item.c_id
+                                    td=item.name
+                                    td=item.address
+                                    td=item.details
+                                    td=item.vote
+
+
+
+            a.back-to-top(href='#')
+              i.fa.fa-chevron-up
+            #preloader
+            // JavaScript Libraries
+            script(src='lib/jquery/jquery.min.js')
+            script(src='lib/jquery/jquery-migrate.min.js')
+            script(src='lib/popper/popper.min.js')
+            script(src='lib/bootstrap/js/bootstrap.min.js')
+            script(src='lib/easing/easing.min.js')
+            script(src='lib/owlcarousel/owl.carousel.min.js')
+            script(src='lib/scrollreveal/scrollreveal.min.js')
+            // Contact Form JavaScript File
+            script(src='contactform/contactform.js')
+            // Template Main Javascript File
+            script(src='js/main.js')
